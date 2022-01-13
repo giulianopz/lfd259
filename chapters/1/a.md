@@ -1,3 +1,6 @@
+## 1. Introduction
+---
+
 **Kubernetes**, also known as **K8s**, is an open-source system (written in Go language) for automating deployment, scaling, and management of containerized applications.
 
 Deploying and connecting containers across multiple hosts, scaling them, deploying applications without downtime, and service discovery among several aspects can be complex.
