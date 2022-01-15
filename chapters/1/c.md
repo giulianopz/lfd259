@@ -21,4 +21,4 @@ An Ingress Controller or a service mesh like Istio can also be used to connect t
 ---
 
 
-- [^1] [Illustrated Guide to Kubernetes Networking](https://speakerdeck.com/thockin/illustrated-guide-to-kubernetes-networking)
+- 1. [Illustrated Guide to Kubernetes Networking](https://speakerdeck.com/thockin/illustrated-guide-to-kubernetes-networking)
