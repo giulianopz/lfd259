@@ -23,6 +23,10 @@ Kubernetes is inspired by **Borg** - the internal system used by Google to manag
     <img src="../img/kuberneteslineage.jpg" width="400" height="200"/>
 </p>
 
+Kubernetes is an open source software with an Apache license. Google donated Kubernetes to a newly formed collaborative project within the Linux Foundation in July 2015, when Kubernetes reached the v1.0 release. This project is known as the Cloud Native Computing Foundation ([CNCF](https://www.cncf.io/)).
+
+CNCF is not just about Kubernetes, it serves as the governing body for open source software that solves specific issues faced by cloud native applications (i.e. applications that are written specifically for a cloud environment).
+
 In its simplest form, Kubernetes is made of one or more central **managers** (aka masters) and **worker nodes**. The manager runs an API server, a scheduler, various operators and a datastore to keep the state of the cluster, container settings, and the networking configuration.
 
 Kubernetes exposes an API via the API server: you can communicate with the API using a local client called **kubectl** or you can write your own client. The **kube-scheduler** sees the API requests for running a new container and finds a suitable node to run that container. Each node in the cluster runs two containers: **kubelet** and **kube-proxy**. The kubelet container receives spec information for container configuration, downloads and manages any necessary resources and works with the container engine on the local node to ensure the container runs or is restarted upon failure. The kube-proxy container creates and manages local firewall rules and networking configuration to expose containers on the network.

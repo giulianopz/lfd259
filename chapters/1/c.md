@@ -18,6 +18,25 @@ The Service object is used to connect Pods within the same network using `Cluste
 
 An Ingress Controller or a service mesh like Istio can also be used to connect traffic to a Pod.
 
+o provide container networking, Kubernetes is standardizing on the Container Network Interface ([CNI](https://github.com/containernetworking/cni)) specification. As of v1.6.0, `kubeadm` (the Kubernetes cluster bootstrapping tool) uses CNI as the default network interface mechanism.
+
+While a CNI plugin can be used to configure the network of a pod and provide a single IP per pod, CNI does not help you with pod-to-pod communication across nodes.
+
+The early requirement from Kubernetes was the following:
+
+- All pods can communicate with each other across nodes.
+- All nodes can communicate with all pods.
+- No Network Address Translation (NAT).
+
+Basically, all IPs involved (nodes and pods) are routable without NAT. This can be achieved at the physical network infrastructure if you have access to it (e.g. GKE). Or, this can be achieved with a software defined overlay with solutions like:
+
+- Weave
+- Flannel
+- Calico
+- Cilium.
+
+Most network plugins now support the use of Network Policies, which act as an internal firewall, limiting ingress and egress traffic.
+
 ---
 
 
