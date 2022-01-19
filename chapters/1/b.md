@@ -44,6 +44,8 @@ The whole point of Kubernetes is to orchestrate the life cycle of a container. I
 
 Containers in a Pod are started in parallel by default. As a result, there is no way to determine which container becomes available first inside a Pod. **initContainers** can be used to ensure some containers are ready before others in a pod. To support a single process running in a container, you may need logging, a proxy, or special adapter. These tasks are often handled by other containers in the same Pod. You may find the term **sidecar** for a container dedicated to performing a helper task.
 
+Using a single container per pod allows for the most granularity and decoupling. There are still some reasons to deploy multiple containers, sometimes called **composite** containers, in a single pod. The secondary containers can handle logging or enhance the primary, the **sidecar** concept, or acting as a proxy to the outside, the **ambassador** concept, or modifying data to meet an external format such as an **adapter**. All three concepts are secondary containers to perform a function the primary container does not.
+
 There is only one IP address per Pod with most network plugins. HPE Labs created a plugin which allows more than one IP per pod. As a result, if there is more than one container, they must share the IP. To communicate with each other, they can use IPC, the loopback interface, or a shared filesystem.
 
 Pods and other objects can be created in several ways. They can be created by using a **generator**, which, historically, has changed with each release:

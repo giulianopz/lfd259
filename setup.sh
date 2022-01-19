@@ -1,6 +1,14 @@
 #!/bin/bash
 #Reference: https://ubuntu.com/tutorials/install-a-local-kubernetes-with-microk8s#1-overview
 
+sudo snap install multipass
+sudo multipass set local.driver=lxd
+sudo snap install lxd
+snap connect multipass:lxd lxd
+multipass networks
+
+multipass launch --network enp3s0 --name master -m 2G
+
 sudo snap install microk8s --classic
 sudo usermod -a -G microk8s $USER
 sudo chown -f -R $USER ~/.kube
