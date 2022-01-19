@@ -1,7 +1,7 @@
 Useful resources to prepare for the [CKAD](https://training.linuxfoundation.org/certification/certified-kubernetes-application-developer-ckad/) certification exam:
 
 - To run Kubernetes locally on your laptop you have [more than one option](https://blog.flant.com/small-local-kubernetes-comparison/).
-  - If you are using an Ubuntu-based distro installing [MicroK8s](https://ubuntu.com/tutorials/install-a-local-kubernetes-with-microk8s) could be the best solution.
+  - If you are using an Ubuntu-based distro installing multipass and MicroK8s could be the best [solution](setup.md).
 - [Kubernetes offical docs](https://kubernetes.io/docs/home/)
 - Some tips and tricks by people who passed the exam:
   - [1](https://medium.com/marcus-tee-anytime/certified-kubernetes-application-developer-ckad-learnings-tips-cc83c12ed555)
