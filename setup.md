@@ -46,7 +46,7 @@
     you@host:~$ multipass shell worker
     ubuntu@worker:~$ microk8s join 10.87.132.212:25000/7c920ce61797b78f8796449dbc03dc3c/bd6bdd702477 --worker
     ```
-
+---
 References:
 - https://ubuntu.com/tutorials/install-a-local-kubernetes-with-microk8s#1-overview
 - https://pancho.dev/posts/multipass-microk8s-cluster/
