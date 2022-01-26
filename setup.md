@@ -1,3 +1,5 @@
+To run Kubernetes locally on your laptop you have [more than one option](https://blog.flant.com/small-local-kubernetes-comparison/). If you are using an Ubuntu-based distro deploy single-node Kubernetes instances with `MicroK8s` on virtual machine launched with `multipass` could be the best solution.
+
 1. Install and configure multipass on the host system (lxd is required to enable support for bridged networking):
     ```
     you@host:~$ sudo snap install multipass

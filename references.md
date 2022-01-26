@@ -1,12 +1,8 @@
 Useful resources to prepare for the [CKAD](https://training.linuxfoundation.org/certification/certified-kubernetes-application-developer-ckad/) certification exam:
-
-- To run Kubernetes locally on your laptop you have [more than one option](https://blog.flant.com/small-local-kubernetes-comparison/).
-  - If you are using an Ubuntu-based distro deploy single-node Kubernetes instances with `MicroK8s` on virtual machine launched with `multipass` could be the best [solution](setup.md).
-- [Kubernetes offical docs](https://kubernetes.io/docs/home/)
-- Read carefully:
-  - the [exam program](https://www.cncf.io/certification/ckad/)
-  - the [curriculum](https://github.com/cncf/curriculum)
-  - the [candidate handbook](https://docs.linuxfoundation.org/tc-docs/certification/lf-candidate-handbook)
+- Exame Documentation:
+  - [exam program](https://www.cncf.io/certification/ckad/)
+  - [curriculum](https://github.com/cncf/curriculum)
+  - [candidate handbook](https://docs.linuxfoundation.org/tc-docs/certification/lf-candidate-handbook)
 - Some tips and tricks by people who passed the exam:
   - [1](https://medium.com/marcus-tee-anytime/certified-kubernetes-application-developer-ckad-learnings-tips-cc83c12ed555)
   - [2](https://www.freecodecamp.org/news/how-to-become-a-certified-kubernetes-application-developer/)
@@ -15,6 +11,7 @@ Useful resources to prepare for the [CKAD](https://training.linuxfoundation.org/
   - [KubeAcademy](https://kube.academy/) free courses
   - [Kube by Example](https://kubebyexample.com/)
   - [Certified Kubernetes Application Developer (CKAD) Study Guide](https://www.oreilly.com/library/view/certified-kubernetes-application/9781492083726/)
+  - [Learning Containers From The Bottom Up. Efficient Learning Path to Grasp Containers Fundamentals](https://iximiuz.com/en/posts/container-learning-path/)
 - Practice material:
   - [CKAD-Practice-Questions](https://github.com/bbachi/CKAD-Practice-Questions)
   - [CKAD Exercises](https://github.com/dgkanatsios/CKAD-exercises)
