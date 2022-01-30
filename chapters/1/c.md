@@ -39,5 +39,4 @@ Most network plugins now support the use of Network Policies, which act as an in
 
 ---
 
-
 - 1. [Illustrated Guide to Kubernetes Networking](https://speakerdeck.com/thockin/illustrated-guide-to-kubernetes-networking)
