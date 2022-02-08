@@ -23,3 +23,10 @@ Container files, logs, and EmptyDir storage, as well as Kubernetes cluster data,
 - spec.containers [].resources. requests.ephemeral-storage
 
 > Note: Ephemeral storage is a beta feature in v1.14.
+
+## Labels
+
+Labels allow for objects to be selected, which may not share other characteristics. Labels are how operators, also known as watch-loops, track and manage objects. Selectors are namespace-scoped. Use the --all-namespaces argument to select matching objects in all namespaces.
+The labels, annotations, name, and metadata of an object can be found near the top of the output produced by `kubectl get <object-name> -o yaml `.
+
+There are several built-in object labels. For example nodes have labels such as the `arch`, `hostname`, and `os`, which could be used for assigning pods to a particular node, or type of node. The `nodeSelector` entry in the podspec could use this label to cause a pod to be deployed on a particular node.
