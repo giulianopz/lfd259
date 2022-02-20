@@ -17,6 +17,9 @@ To run Kubernetes locally on your laptop you have [more than one option](https:/
 4. Install and configure microk8s on the master node:
     ```
     you@host:~$ multipass shell master
+    #disable apparmor
+    ubuntu@master:~$ sudo systemctl disable --now apparmor.service
+    #install microk8s
     ubuntu@master:~$ sudo snap install microk8s --classic
     ubuntu@master:~$ sudo usermod -a -G microk8s $USER
     ubuntu@master:~$ sudo chown -f -R $USER ~/.kube
