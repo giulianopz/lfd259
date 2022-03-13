@@ -29,3 +29,7 @@
   -  Demonstrate basic understanding of NetworkPolicies
   -  Provide and troubleshoot access to applications via services
   -  Use Ingress rules to expose applications
+
+---
+
+Revisit latest vaersion of the CKAD domain list on the official [repo](https://github.com/cncf/curriculum).

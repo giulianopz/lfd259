@@ -1,6 +1,6 @@
 ## Deployment
 
-With the ReplicaSets of a Deployment being kept, you can also roll back to a previous revision by using the `--record` option of the kubectl command, which allows annotation in the resource definition:
+With the ReplicaSets of a Deployment being kept, you can also roll back to a previous revision by using the `--record` option of the kubectl command, which allows you to record current command in the annotations of the resources being created or updated:
 ```
 $ kubectl set image deploy mydeploy myapp=myapp:2.9 --record
 deployment.apps/mydeploy image updated
@@ -19,10 +19,13 @@ deployment.apps/mydeploy
 REVISION     CHANGE-CAUSE
 1            <none>
 2            kubectl set image deploy myapp=myapp:2.9 --record=true
+```
 
-$ kubectl get pods
-NAME                       READY    STATUS               RESTARTS    AGE
-mydeploy-2141819201-tcths  0/1      ImagePullBackOff     0           1m​
+You can check and compare the ouput of specific revisions:
+```
+kubectl rollout history deployment try1 --revision=1 > one.out
+kubectl rollout history deployment try1 --revision=2 > two.out
+diff one.out two.out
 ```
 
 Should an update fail, due to an improper image version, for example, you can roll back the change to a working version with:
