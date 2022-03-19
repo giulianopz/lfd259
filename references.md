@@ -18,3 +18,6 @@ Useful resources to prepare for the [CKAD](https://training.linuxfoundation.org/
 - Other curated lists of resources:
   - [Kubernetes Certified Administration](https://github.com/walidshaari/Kubernetes-Certified-Administrator)
   - [ckad-prep-notes](https://github.com/twajr/ckad-prep-notes)
+- Additional interesting reading material:
+  - [The future of Kubernetes – and why developers should look beyond Kubernetes in 2022](https://www.eficode.com/blog/the-future-of-kubernetes-and-why-developers-should-look-beyond-kubernetes-in-2022)
+  - [A COMPLETE guide on how to make Docker images even smaller](https://symflower.com/en/company/blog/2022/complete-guide-on-shrinking-container-images/)

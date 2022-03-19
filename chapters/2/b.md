@@ -51,8 +51,10 @@ You can see the details, conditions, volumes and events for an object with `desc
 
 A next step in testing may be to look at the output of containers within a pod: `kubectl logs test1`
 
-In addition to pushing the image to a repository, you may want provide the image and other objects, such that they can be easily deployed. The [Helm](https://helm.sh/) package manager is the package manager for Kubernetes.
+In addition to pushing the image to a repository, you may want provide the image and other objects, such that they can be easily deployed. The [Helm](https://helm.sh/) package manager is the package manager for Kubernetes[^1].
 
 Helm uses a **chart**, or collection of YAML files to deploy one or more objects. For flexibility and dynamic installation, a `values.yaml` file is part of a chart and is often edited before deployment.
 
 A chart can come from many locations, with [ArtifactHub](https://artifacthub.io/) becoming a centralized site to publish and find charts.
+
+[^1]: [Helm: A cheat sheet ](https://www.tutorialworks.com/helm-cheatsheet/)
