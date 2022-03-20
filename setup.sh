@@ -1,17 +1,22 @@
 #!/bin/bash
 set -e
 
-# 1. Install and configure multipass on the host system (lxd is required to enable support for bridged networking):
+# Please, note that to enable bridged networking with Multipass you will need:
+# - NetworkManager as netplan renderer
+# - cloud-init support for Version 2 network config
+# - LXD
 
+# 1. Install and configure multipass on the host system:
+
+sudo snap install lxd
 sudo snap install multipass
 sudo multipass set local.driver=lxd
-sudo snap install lxd
 snap connect multipass:lxd lxd
 
 # 2. List available interfaces that multipass can connect instances to:
 multipass networks
 
-# 3. Create the master node (replace `enp3s#with your interface):
+# 3. Create the master node (replace `enp3s` with your interface):
 multipass launch --network enp3s0 --name master -m 3G
 
 # 4. Install and configure microk8s on the master node:
