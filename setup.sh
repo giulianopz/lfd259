@@ -6,20 +6,20 @@ set -e
 # - cloud-init support for Version 2 network config
 # - LXD
 
-# 1. Install and configure multipass on the host system:
+# Install and configure multipass on the host system:
 
 sudo snap install lxd
 sudo snap install multipass
 sudo multipass set local.driver=lxd
 snap connect multipass:lxd lxd
 
-# 2. List available interfaces that multipass can connect instances to:
+# List available interfaces that multipass can connect instances to:
 multipass networks
 
-# 3. Create the master node (replace `enp3s` with your interface):
+# Create the master node (replace `enp3s` with your interface):
 multipass launch --network enp3s0 --name master -m 3G
 
-# 4. Install and configure microk8s on the master node:
+# Install and configure microk8s on the master node:
 
 multipass exec master -- sudo snap install microk8s --classic
 multipass exec master -- sudo usermod -a -G microk8s $USER
@@ -28,12 +28,22 @@ multipass exec master -- newgrp microk8s
 multipass exec master -- microk8s enable dns dashboard storage
 multipass exec master -- (crontab -l 2>/dev/null; echo "@reboot apparmor_parser --replace /var/lib/snapd/apparmor/profiles/snap.microk8s.*") | crontab -
 
-# 5. Set an alias for `kubectl` enabling auto-completion:
+# Set an alias for `kubectl` enabling auto-completion:
 
 multipass exec master -- sudo snap alias microk8s.kubectl k
 multipass exec master -- echo "source <(k completion bash | sed 's/kubectl/k/g')" >> ~/.bashrc && source ~/.bashrc
 
-# 6. Repeat steps 3-5 to set a second vm as a worker node naming it as `worker`
+# It seems microk8s store its kubeconfig file in a non-default path. To create a kubeconfig file from the microk8s environment, do the following
+k config view --raw > $HOME/.kube/config
+
+# Install Helm package
+curl https://baltocdn.com/helm/signing.asc | sudo apt-key add -
+sudo apt-get install apt-transport-https --yes
+echo "deb https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
+sudo apt-get update
+sudo apt-get install helm
+
+# Repeat steps 3-5 to set a second vm as a worker node naming it as `worker`
 multipass launch --network enp3s0 --name worker -m 3G
 multipass exec worker -- sudo snap install microk8s --classic
 multipass exec worker -- sudo usermod -a -G microk8s $USER
@@ -44,7 +54,7 @@ multipass exec worker -- (crontab -l 2>/dev/null; echo "@reboot apparmor_parser 
 multipass exec worker -- sudo snap alias microk8s.kubectl k
 multipass exec worker -- echo "source <(k completion bash | sed 's/kubectl/k/g')" >> ~/.bashrc && source ~/.bashrc
 
-# 7. Set a static IP for both multipass instaces, so that you can use the when joining the nodes:
+# Set a static IP for both multipass instaces, so that you can use the when joining the nodes:
 #network:
 #    ethernets:
 #        default:
@@ -62,7 +72,7 @@ multipass exec worker -- echo "source <(k completion bash | sed 's/kubectl/k/g')
 #            optional: true
 #    version: 2
 
-# 8. Generate a connection string in the master node, this string is a command you can run in the worker to join this worker node to the master
+# Generate a connection string in the master node, this string is a command you can run in the worker to join this worker node to the master
 
 multipass exec master -- sudo microk8s add-node
 #From the node you wish to join to this cluster, run the following:
@@ -74,20 +84,21 @@ multipass exec master -- sudo microk8s add-node
 #If the node you are adding is not reachable through the default interface you can use one of the following:
 #microk8s join 10.87.132.212:25000/7c920ce61797b78f8796449dbc03dc3c/bd6bdd702477
 
-# 9. Join the worker to the master:
+# Join the worker to the master:
 
 multipass exec worker -- microk8s join 10.87.132.212:25000/7c920ce61797b78f8796449dbc03dc3c/bd6bdd702477 --worker
 
-# 10. To expose a web service (e.g. k8s dashboard) from the cluster running within Multipass via its host to another client,
-# 10.1 Ensure that the service is of type NodePort
+# To expose a web service (e.g. k8s dashboard) from the cluster running within Multipass via its host to another client,
+#   1. Ensure that the service is of type NodePort
 # k -n kube-system edit service kubernetes-dashboard
 # >> type: NodePort                   # change clusterIP to NodePort (if needed)
-# 10.2 Find the high port the service is exposed to:
+#   2. Find the high port the service is exposed to:
 #  k -n kube-system get services
 # >> kubernetes-dashboard NodePort 10.107.194.201 [none] 443:32414/TCP 20d
-# 10.3 Use a local port-forwarding to reach the cluster from your laptop using the VMs host as an SSH server
+#   3. Use a local port-forwarding to reach the cluster from your laptop using the VMs host as an SSH server
 # ssh -L local-port:multipass-master-ip:web-service-port -N -f username@ssh-server-ip
-# To male the connection permanent, create a static route.
+# e.g. ssh -L 31500:192.168.1.221:31500 -N -f giulianopz@192.168.1.57
+# To make the connection permanent, create a static route.
 
 # References:
 # - https://ubuntu.com/tutorials/install-a-local-kubernetes-with-microk8s#1-overview

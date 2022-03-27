@@ -16,9 +16,9 @@ A container orchestration system must address three networking issues:
 
 The Service object is used to connect Pods within the same network using `ClusterIP` adresses, from outside of the cluster using `NodePort` addresses, and using a load balancer if configured with a `LoadBalancer` service.
 
-An Ingress Controller or a service mesh like Istio can also be used to connect traffic to a Pod.
+An Ingress Controller or a service mesh like Istio can also be used to connect traffic to a Pod, especially if you have a large numberiof services to expose outside of the cluster, or to expose a low-number port on the host node.
 
-o provide container networking, Kubernetes is standardizing on the Container Network Interface ([CNI](https://github.com/containernetworking/cni)) specification. As of v1.6.0, `kubeadm` (the Kubernetes cluster bootstrapping tool) uses CNI as the default network interface mechanism.
+To provide container networking, Kubernetes is standardizing on the Container Network Interface ([CNI](https://github.com/containernetworking/cni)) specification. As of v1.6.0, `kubeadm` (the Kubernetes cluster bootstrapping tool) uses CNI as the default network interface mechanism.
 
 While a CNI plugin can be used to configure the network of a pod and provide a single IP per pod, CNI does not help you with pod-to-pod communication across nodes.
 
