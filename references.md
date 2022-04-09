@@ -1,5 +1,5 @@
 Useful resources to prepare for the [CKAD](https://training.linuxfoundation.org/certification/certified-kubernetes-application-developer-ckad/) certification exam:
-- Exame Documentation:
+- Exam Documentation:
   - [exam program](https://www.cncf.io/certification/ckad/)
   - [curriculum](https://github.com/cncf/curriculum)
   - [candidate handbook](https://docs.linuxfoundation.org/tc-docs/certification/lf-candidate-handbook)
@@ -19,5 +19,16 @@ Useful resources to prepare for the [CKAD](https://training.linuxfoundation.org/
   - [Kubernetes Certified Administration](https://github.com/walidshaari/Kubernetes-Certified-Administrator)
   - [ckad-prep-notes](https://github.com/twajr/ckad-prep-notes)
 - Additional interesting reading material:
+  - [What is a container image?](https://opensource.com/article/21/8/container-image)
+  - [Container image formats under the hood](https://snyk.io/blog/container-image-formats/)
+  - [Why and How to Use containerd From Command Line](https://iximiuz.com/en/posts/containerd-command-line-clients/)
+  - [Write Kubernetes in Java with the Java Operator SDK](https://developers.redhat.com/articles/2022/02/15/write-kubernetes-java-java-operator-sdk)
+  - [Containers vs. Pods - Taking a Deeper Look](https://iximiuz.com/en/posts/containers-vs-pods/)
+  - [Containers Aren't Linux Processes](https://iximiuz.com/en/posts/oci-containers/)
+  - [Stopping SQL Injections and XSS with Ingress Controller](https://twitter.com/danielepolencic/status/1504078255355138054)
+  - [Working with Kubernetes API](https://iximiuz.com/en/series/working-with-kubernetes-api/)
   - [The future of Kubernetes – and why developers should look beyond Kubernetes in 2022](https://www.eficode.com/blog/the-future-of-kubernetes-and-why-developers-should-look-beyond-kubernetes-in-2022)
   - [A COMPLETE guide on how to make Docker images even smaller](https://symflower.com/en/company/blog/2022/complete-guide-on-shrinking-container-images/)
+- Kubernetes playgrounds:
+  - [Play with Kubernetes](https://labs.play-with-k8s.com/)
+  - [Katacoda](https://www.katacoda.com/courses/kubernetes/playground)
