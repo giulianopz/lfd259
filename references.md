@@ -8,17 +8,10 @@ Useful resources to prepare for the [CKAD](https://training.linuxfoundation.org/
   - [2](https://www.freecodecamp.org/news/how-to-become-a-certified-kubernetes-application-developer/)
   - [3](https://dzone.com/articles/how-to-prepare-for-ckad-and-cka-certification)
 - Learning Material:
-  - [KubeAcademy](https://kube.academy/) free courses
+  - [KubeAcademy](https://kube.academy/)
   - [Kube by Example](https://kubebyexample.com/)
   - [Certified Kubernetes Application Developer (CKAD) Study Guide](https://www.oreilly.com/library/view/certified-kubernetes-application/9781492083726/)
   - [Learning Containers From The Bottom Up. Efficient Learning Path to Grasp Containers Fundamentals](https://iximiuz.com/en/posts/container-learning-path/)
-- Practice material:
-  - [CKAD-Practice-Questions](https://github.com/bbachi/CKAD-Practice-Questions)
-  - [CKAD Exercises](https://github.com/dgkanatsios/CKAD-exercises)
-- Other curated lists of resources:
-  - [Kubernetes Certified Administration](https://github.com/walidshaari/Kubernetes-Certified-Administrator)
-  - [ckad-prep-notes](https://github.com/twajr/ckad-prep-notes)
-- Additional interesting reading material:
   - [What is a container image?](https://opensource.com/article/21/8/container-image)
   - [Container image formats under the hood](https://snyk.io/blog/container-image-formats/)
   - [Why and How to Use containerd From Command Line](https://iximiuz.com/en/posts/containerd-command-line-clients/)
@@ -29,6 +22,13 @@ Useful resources to prepare for the [CKAD](https://training.linuxfoundation.org/
   - [Working with Kubernetes API](https://iximiuz.com/en/series/working-with-kubernetes-api/)
   - [The future of Kubernetes – and why developers should look beyond Kubernetes in 2022](https://www.eficode.com/blog/the-future-of-kubernetes-and-why-developers-should-look-beyond-kubernetes-in-2022)
   - [A COMPLETE guide on how to make Docker images even smaller](https://symflower.com/en/company/blog/2022/complete-guide-on-shrinking-container-images/)
+- Practice material:
+  - [CKAD Practice](https://kube.academy/courses/ckad-practice)
+  - [CKAD-Practice-Questions](https://github.com/bbachi/CKAD-Practice-Questions)
+  - [CKAD Exercises](https://github.com/dgkanatsios/CKAD-exercises)
+- Other curated lists of resources:
+  - [Kubernetes Certified Administration](https://github.com/walidshaari/Kubernetes-Certified-Administrator)
+  - [ckad-prep-notes](https://github.com/twajr/ckad-prep-notes)
 - Kubernetes playgrounds:
   - [Play with Kubernetes](https://labs.play-with-k8s.com/)
   - [Katacoda](https://www.katacoda.com/courses/kubernetes/playground)
