@@ -4,7 +4,7 @@ To run Kubernetes locally as a single-node on your laptop you have more than one
 - [Small Kubernetes for your local experiments](https://blog.flant.com/small-local-kubernetes-comparison/)
 - [Setting up a Kubernetes cluster](https://www.armosec.io/blog/setting-up-kubernetes-cluster/)
 
-If you have a spare/old laptop or a server/mini-pc, you can setup a mini cluster consisting of two nodes (master + worker) launching `multipass` instances (using `LXD` as backed) which run `MicroK8s` (using `containerd` as container runtime). See the following image for the network topology of such configuration:
+If you have a spare/old laptop or a server/mini-pc, you can setup a mini cluster consisting of two nodes (master + worker) launching `multipass` instances (using `LXD` as backend) which run `MicroK8s` (using `containerd` as container runtime). See the following image for the network topology of such configuration:
 
 <p align="center">
     <img src="mini-cluster-netword-diagram.jpg"/>
