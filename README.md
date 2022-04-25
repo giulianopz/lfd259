@@ -17,3 +17,17 @@ Additional resources you will need to setup your cluster to simulate the officia
 - a userland implementation of NFSv3 like `unfsd` (see [CreateUNFS.sh](CreateUNFS.sh)): but it can be tricky, since you are not allowed two turn multipass instances into LXD privileged containers
   - alternatively, consider to just mount a directory from the host as follows: `multipass mount -u $UID:1000 ckad/ master:/mnt`
 - linkerd version `stable-2.10.0` (more recent versions will not work with latest ingress-nginx version you will be required to install)
+
+Tips for the exams:
+- read the [candidate handbook](https://docs.linuxfoundation.org/tc-docs/certification/lf-candidate-handbook) and the [instructions](https://docs.linuxfoundation.org/tc-docs/certification/tips-cka-and-ckad) of the exam
+- make sure you have bookmarked the pages of the official Kubernetes docs where you can quickly find example of valid manifests to create objects/resources
+  - if you have not yet collected this stuff, see [here](https://github.com/reetasingh/CKAD-Bookmarks)
+- set autocompletion for `kubectl` commands:
+  ```
+  $ alias k='kubectl'
+  $ source <(kubectl completion bash)
+  $ echo "source <(kubectl completion bash)" >> ~/.bashrc
+  $ complete -F __start_kubectl k
+  ```
+- get familiar with vi/vim, if you dont't use them frequently
+- get used to pasting text using the mouse middle/center key, as customary in most of Linux distross
