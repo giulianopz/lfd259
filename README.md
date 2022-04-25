@@ -23,7 +23,7 @@ Some useful info while studying and practicing:
 - consult the [references](references.md) on how to prepare for the exam
 - internalize the [tricks](tricks.md) you can use from the command line
 
-Tips before sitting the the exams:
+Tips before sitting the exams:
 - read the [candidate handbook](https://docs.linuxfoundation.org/tc-docs/certification/lf-candidate-handbook) and the [instructions](https://docs.linuxfoundation.org/tc-docs/certification/tips-cka-and-ckad) of the exam
 - make sure you have bookmarked the pages of the official Kubernetes docs where you can quickly find example of valid manifests to create objects/resources
   - if you have not yet collected this stuff, see [here](https://github.com/reetasingh/CKAD-Bookmarks)
