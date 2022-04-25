@@ -18,7 +18,12 @@ Additional resources you will need to setup your cluster to simulate the officia
   - alternatively, consider to just mount a directory from the host as follows: `multipass mount -u $UID:1000 ckad/ master:/mnt`
 - linkerd version `stable-2.10.0` (more recent versions will not work with latest ingress-nginx version you will be required to install)
 
-Tips for the exams:
+Some useful info while studying and practicing:
+- review the [syllabus](syllabus.md) of the domains covered by the exam
+- consult the [references](references.md) on how to prepare for the exam
+- internalize the [tricks](tricks.md) you can use from the command line
+
+Tips before sitting the the exams:
 - read the [candidate handbook](https://docs.linuxfoundation.org/tc-docs/certification/lf-candidate-handbook) and the [instructions](https://docs.linuxfoundation.org/tc-docs/certification/tips-cka-and-ckad) of the exam
 - make sure you have bookmarked the pages of the official Kubernetes docs where you can quickly find example of valid manifests to create objects/resources
   - if you have not yet collected this stuff, see [here](https://github.com/reetasingh/CKAD-Bookmarks)

@@ -1,13 +1,14 @@
 Useful resources to prepare for the [CKAD](https://training.linuxfoundation.org/certification/certified-kubernetes-application-developer-ckad/) certification exam:
 - Exam Documentation:
-  - [exam program](https://www.cncf.io/certification/ckad/)
-  - [curriculum](https://github.com/cncf/curriculum)
-  - [candidate handbook](https://docs.linuxfoundation.org/tc-docs/certification/lf-candidate-handbook)
-- Some tips and tricks by people who passed the exam:
+  - [Exam Program](https://www.cncf.io/certification/ckad/)
+  - [CNCF Curriculum](https://github.com/cncf/curriculum)
+  - [Candidate Handbook](https://docs.linuxfoundation.org/tc-docs/certification/lf-candidate-handbook)
+- Some tips from people who passed the exam:
   - [1](https://medium.com/marcus-tee-anytime/certified-kubernetes-application-developer-ckad-learnings-tips-cc83c12ed555)
   - [2](https://www.freecodecamp.org/news/how-to-become-a-certified-kubernetes-application-developer/)
   - [3](https://dzone.com/articles/how-to-prepare-for-ckad-and-cka-certification)
 - Learning Material:
+  - [Kubernetes for Developers (LFD259)](https://training.linuxfoundation.org/training/kubernetes-for-developers/)
   - [KubeAcademy](https://kube.academy/)
   - [Kube by Example](https://kubebyexample.com/)
   - [Certified Kubernetes Application Developer (CKAD) Study Guide](https://www.oreilly.com/library/view/certified-kubernetes-application/9781492083726/)
@@ -29,6 +30,6 @@ Useful resources to prepare for the [CKAD](https://training.linuxfoundation.org/
 - Other curated lists of resources:
   - [Kubernetes Certified Administration](https://github.com/walidshaari/Kubernetes-Certified-Administrator)
   - [ckad-prep-notes](https://github.com/twajr/ckad-prep-notes)
-- Kubernetes playgrounds:
+- Alternative Kubernetes playgrounds:
   - [Play with Kubernetes](https://labs.play-with-k8s.com/)
   - [Katacoda](https://www.katacoda.com/courses/kubernetes/playground)
