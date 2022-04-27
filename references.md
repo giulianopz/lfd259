@@ -12,6 +12,7 @@ Useful resources to prepare for the [CKAD](https://training.linuxfoundation.org/
   - [KubeAcademy](https://kube.academy/)
   - [Kube by Example](https://kubebyexample.com/)
   - [Certified Kubernetes Application Developer (CKAD) Study Guide](https://www.oreilly.com/library/view/certified-kubernetes-application/9781492083726/)
+- Interesting Articles:
   - [Learning Containers From The Bottom Up. Efficient Learning Path to Grasp Containers Fundamentals](https://iximiuz.com/en/posts/container-learning-path/)
   - [What is a container image?](https://opensource.com/article/21/8/container-image)
   - [Container image formats under the hood](https://snyk.io/blog/container-image-formats/)
