@@ -17,16 +17,16 @@ snap connect multipass:lxd lxd
 multipass networks
 
 # Create the master node (replace `enp3s` with your interface):
-multipass launch --network enp3s0 --name master -m 3G
+multipass launch --network eno1 --name master -m 3G -d 15G
 
 # Install and configure microk8s on the master node:
 
 multipass exec master -- sudo snap install microk8s --classic
-multipass exec master -- sudo usermod -a -G microk8s $USER
-multipass exec master -- sudo chown -f -R $USER ~/.kube
+multipass exec master -- usermod -a -G microk8s $USER
+multipass exec master -- chown -f -R $USER ~/.kube
 multipass exec master -- newgrp microk8s
 multipass exec master -- microk8s enable dns dashboard storage
-multipass exec master -- (crontab -l 2>/dev/null; echo "@reboot apparmor_parser --replace /var/lib/snapd/apparmor/profiles/snap.microk8s.*") | crontab -
+#multipass exec master -- (crontab -l 2>/dev/null; echo "@reboot apparmor_parser --replace /var/lib/snapd/apparmor/profiles/snap.microk8s.*") | crontab -
 
 # Set an alias for `kubectl` enabling auto-completion:
 
@@ -34,25 +34,21 @@ multipass exec master -- sudo snap alias microk8s.kubectl k
 multipass exec master -- echo "source <(k completion bash | sed 's/kubectl/k/g')" >> ~/.bashrc && source ~/.bashrc
 
 # It seems microk8s store its kubeconfig file in a non-default path. To create a kubeconfig file from the microk8s environment, do the following
-k config view --raw > $HOME/.kube/config
+multipass exec master -- k config view --raw > $HOME/.kube/config
 
 # Install Helm package
-curl https://baltocdn.com/helm/signing.asc | sudo apt-key add -
-sudo apt-get install apt-transport-https --yes
-echo "deb https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
-sudo apt-get update
-sudo apt-get install helm
+multipass exec master -- curl https://baltocdn.com/helm/signing.asc | sudo apt-key add -
+multipass exec master -- sudo apt install apt-transport-https --yes
+multipass exec master -- echo "deb https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
+multipass exec master -- sudo apt update
+multipass exec master -- sudo apt install helm -y
 
-# Repeat steps 3-5 to set a second vm as a worker node naming it as `worker`
-multipass launch --network enp3s0 --name worker -m 3G
+# Repeat the previous steps to set a second vm as a worker node naming it as `worker`
+multipass launch --network eno1 --name worker -m 3G -d 15G
 multipass exec worker -- sudo snap install microk8s --classic
-multipass exec worker -- sudo usermod -a -G microk8s $USER
-multipass exec worker -- sudo chown -f -R $USER ~/.kube
+multipass exec worker -- usermod -a -G microk8s $USER
+multipass exec worker -- chown -f -R $USER ~/.kube
 multipass exec worker -- newgrp microk8s
-multipass exec worker -- microk8s enable dns dashboard storage
-multipass exec worker -- (crontab -l 2>/dev/null; echo "@reboot apparmor_parser --replace /var/lib/snapd/apparmor/profiles/snap.microk8s.*") | crontab -
-multipass exec worker -- sudo snap alias microk8s.kubectl k
-multipass exec worker -- echo "source <(k completion bash | sed 's/kubectl/k/g')" >> ~/.bashrc && source ~/.bashrc
 
 # Set a static IP for both multipass instaces, so that you can use the when joining the nodes:
 #network:
@@ -60,7 +56,7 @@ multipass exec worker -- echo "source <(k completion bash | sed 's/kubectl/k/g')
 #        default:
 #            dhcp4: true
 #            match:
-#                macaddress: 52:54:00:b9:44:6b # put you MAC address here
+#                macaddress: 52:54:00:b9:44:6b # put your MAC address here
 #            addresses:
 #            -  192.168.1.221/24 # put the static IP here
 #        extra0:
