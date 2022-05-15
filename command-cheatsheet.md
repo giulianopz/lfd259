@@ -35,3 +35,13 @@ kubectl run tmp --image=busybox --restart=Never --rm -it -- /bin/sh
 ---
 
 Delete all evicted pods: `kubectl get pods | grep Evicted | awk '{print $1}' | xargs kubectl delete pod`
+
+---
+
+List packages installed in container:
+```
+k run test --image=docker.io/library/alpine --restart=Never --rm -it -- apk info -vv
+k run test --image=docker.io/ubuntu/nginx --restart=Never --rm -it -- dpkg -l
+k run test --image=docker.io/redhat/ubi8-minimal --restart=Never --rm -it -- rpm -qa
+k run test --image=registry.access.redhat.com/rhel7 --restart=Never --rm -it -- yum list installed
+```
