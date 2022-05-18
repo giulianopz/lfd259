@@ -24,6 +24,7 @@ Useful resources to prepare for the [CKAD](https://training.linuxfoundation.org/
   - [Working with Kubernetes API](https://iximiuz.com/en/series/working-with-kubernetes-api/)
   - [The future of Kubernetes – and why developers should look beyond Kubernetes in 2022](https://www.eficode.com/blog/the-future-of-kubernetes-and-why-developers-should-look-beyond-kubernetes-in-2022)
   - [A COMPLETE guide on how to make Docker images even smaller](https://symflower.com/en/company/blog/2022/complete-guide-on-shrinking-container-images/)
+  - [A visual guide on troubleshooting Kubernetes deployments](https://learnk8s.io/troubleshooting-deployments)
 - Practice material:
   - [CKAD Practice](https://kube.academy/courses/ckad-practice)
   - [CKAD-Practice-Questions](https://github.com/bbachi/CKAD-Practice-Questions)
