@@ -25,6 +25,19 @@ kubectl run nginx --image=nginx --restart=Never \
   -o yaml > pod.yaml
 ```
 
+Instead of redirecting the output to a file, you can pass it directly to an editor:
+```
+k create job myjob --image=busybox --dry-run=client -o yaml | vi -
+```
+
+Then assign it a name before quitting:
+```
+w job.yaml
+#enter
+q
+#enter
+```
+
 ---
 
 Create a temporary pod to troubleshoot some issues:
