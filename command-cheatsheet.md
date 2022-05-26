@@ -30,12 +30,9 @@ Instead of redirecting the output to a file, you can pass it directly to an edit
 k create job myjob --image=busybox --dry-run=client -o yaml | vi -
 ```
 
-Then assign it a name before quitting:
+Then assign it a name and quit:
 ```
-w job.yaml
-#enter
-q
-#enter
+wq job.yaml
 ```
 
 ---
