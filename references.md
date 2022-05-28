@@ -31,6 +31,7 @@ Useful resources to prepare for the [CKAD](https://training.linuxfoundation.org/
   - [CKAD Practice](https://kube.academy/courses/ckad-practice)
   - [CKAD-Practice-Questions](https://github.com/bbachi/CKAD-Practice-Questions)
   - [CKAD Exercises](https://github.com/dgkanatsios/CKAD-exercises)
+  - [Kubernete Tutorials with CKA and CKAD Prep Guide](kubernetes-tutorial.schoolofdevops.com)
 - Other curated lists of resources:
   - [Kubernetes Certified Administration](https://github.com/walidshaari/Kubernetes-Certified-Administrator)
   - [ckad-prep-notes](https://github.com/twajr/ckad-prep-notes)
