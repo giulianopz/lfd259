@@ -16,7 +16,5 @@ echo "Master node is in state: $state"
 if [ $state != 'Running' ]; then
         echo "Starting the cluster..." && start
 fi
-echo "Waiting 5 secs for the nodes to be up..."
-sleep 5
-echo "Shell into master"
-sshmaster
+echo "Waiting 5 secs for the nodes to be up..." && sleep 5
+echo "Shell into master" && sshmaster
