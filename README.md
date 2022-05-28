@@ -37,6 +37,4 @@ Tips before sitting the exams:
 - get familiar with vi/vim, if you dont't use them frequently
 - get used to pasting text using the mouse middle/center key, as customary in most of Linux distross
 
-[^1]: Alternatively, you may take into considerations online Kubernetes playgrounds such as the followings (not recommended):
-  - [Play with Kubernetes](https://labs.play-with-k8s.com/)
-  - [Katacoda](https://www.katacoda.com/courses/kubernetes/playground)
+[^1]: Alternatively, you may take into considerations online Kubernetes playgrounds such as the followings (not recommended): [Play with Kubernetes](https://labs.play-with-k8s.com/), [Katacoda](https://www.katacoda.com/courses/kubernetes/playground)
