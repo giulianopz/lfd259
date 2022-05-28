@@ -2,7 +2,7 @@
 
 To run Kubernetes locally as a single-node on your laptop you have more than one option, e.g. see:
 - [Small Kubernetes for your local experiments](https://blog.flant.com/small-local-kubernetes-comparison/)
-- [Setting up a Kubernetes cluster](https://www.armosec.io/blog/setting-up-kubernetes-cluster/)
+- [Setting up a Kubernetes cluster](https://www.armosec.io/blog/setting-up-kubernetes-cluster/)[^1]
 
 If you have a spare/old laptop or a server/mini-pc, you can setup a mini cluster consisting of two nodes (master + worker) launching `multipass` instances (using `LXD` as backend) which run `MicroK8s` (using `containerd` as container runtime). See the following image for the network topology of such configuration:
 
@@ -27,7 +27,7 @@ Tips before sitting the exams:
 - read the [candidate handbook](https://docs.linuxfoundation.org/tc-docs/certification/lf-candidate-handbook) and the [instructions](https://docs.linuxfoundation.org/tc-docs/certification/tips-cka-and-ckad) of the exam
 - make sure you have bookmarked the pages of the official Kubernetes docs where you can quickly find example of valid manifests to create objects/resources
   - if you have not yet collected this stuff, see [here](https://github.com/reetasingh/CKAD-Bookmarks)
-- set autocompletion for `kubectl` commands:
+- set autocompletion for `kubectl` commands (should be already configured so):
   ```
   $ alias k='kubectl'
   $ source <(kubectl completion bash)
@@ -36,3 +36,7 @@ Tips before sitting the exams:
   ```
 - get familiar with vi/vim, if you dont't use them frequently
 - get used to pasting text using the mouse middle/center key, as customary in most of Linux distross
+
+[^1]: Alternatively, you may take into considerations online Kubernetes playgrounds such as the followings (not recommended):
+  - [Play with Kubernetes](https://labs.play-with-k8s.com/)
+  - [Katacoda](https://www.katacoda.com/courses/kubernetes/playground)

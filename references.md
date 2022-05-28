@@ -12,7 +12,7 @@ Useful resources to prepare for the [CKAD](https://training.linuxfoundation.org/
   - [KubeAcademy](https://kube.academy/)
   - [Kube by Example](https://kubebyexample.com/)
   - [Certified Kubernetes Application Developer (CKAD) Study Guide](https://www.oreilly.com/library/view/certified-kubernetes-application/9781492083726/)
-- Interesting Articles:
+- Reading Material:
   - [Learning Containers From The Bottom Up. Efficient Learning Path to Grasp Containers Fundamentals](https://iximiuz.com/en/posts/container-learning-path/)
   - [What is a container image?](https://opensource.com/article/21/8/container-image)
   - [Container image formats under the hood](https://snyk.io/blog/container-image-formats/)
@@ -26,6 +26,7 @@ Useful resources to prepare for the [CKAD](https://training.linuxfoundation.org/
   - [A COMPLETE guide on how to make Docker images even smaller](https://symflower.com/en/company/blog/2022/complete-guide-on-shrinking-container-images/)
   - [A visual guide on troubleshooting Kubernetes deployments](https://learnk8s.io/troubleshooting-deployments)
   - [Understanding Kubernetes Resource (CPU and Memory) Units](https://medium.com/swlh/understanding-kubernetes-resource-cpu-and-memory-units-30284b3cc866)
+  - [Collecting metrics with built-in Kubernetes monitoring tools](https://www.datadoghq.com/blog/how-to-collect-and-graph-kubernetes-metrics/#add-kube-state-metrics-to-your-cluster)
 - Practice material:
   - [CKAD Practice](https://kube.academy/courses/ckad-practice)
   - [CKAD-Practice-Questions](https://github.com/bbachi/CKAD-Practice-Questions)
@@ -33,6 +34,3 @@ Useful resources to prepare for the [CKAD](https://training.linuxfoundation.org/
 - Other curated lists of resources:
   - [Kubernetes Certified Administration](https://github.com/walidshaari/Kubernetes-Certified-Administrator)
   - [ckad-prep-notes](https://github.com/twajr/ckad-prep-notes)
-- Alternative Kubernetes playgrounds:
-  - [Play with Kubernetes](https://labs.play-with-k8s.com/)
-  - [Katacoda](https://www.katacoda.com/courses/kubernetes/playground)
