@@ -27,14 +27,13 @@ Tips before sitting the exams:
 - read the [candidate handbook](https://docs.linuxfoundation.org/tc-docs/certification/lf-candidate-handbook) and the [instructions](https://docs.linuxfoundation.org/tc-docs/certification/tips-cka-and-ckad) of the exam
 - make sure you have bookmarked the pages of the official Kubernetes docs where you can quickly find example of valid manifests to create objects/resources
   - if you have not yet collected this stuff, see [here](https://github.com/reetasingh/CKAD-Bookmarks)
-- set autocompletion for `kubectl` commands (should be already configured so):
+- set autocompletion for `kubectl` commands (should be already configured so, but without alias):
   ```
-  $ alias k='kubectl'
-  $ source <(kubectl completion bash)
-  $ echo "source <(kubectl completion bash)" >> ~/.bashrc
-  $ complete -F __start_kubectl k
+  $ echo 'source <(kubectl completion bash)' >> ~/.bashrc
+  $ echo 'alias k=kubectl' >> ~/.bashrc
+  $ echo 'complete -F __start_kubectl k' >> ~/.bashrc
   ```
-- get familiar with vi/vim, if you dont't use them frequently
+- get familiar with `vi/vim`, if you dont't use them frequently
 - get used to pasting text using the mouse middle/center key, as customary in most of Linux distros
 
 [^1]: Alternatively, you may take into considerations online Kubernetes playgrounds such as the followings (not recommended): [Play with Kubernetes](https://labs.play-with-k8s.com/), [Katacoda](https://www.katacoda.com/courses/kubernetes/playground)
