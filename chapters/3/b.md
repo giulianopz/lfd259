@@ -1,32 +1,60 @@
-## Resource Management
+## Containerizing an Application
 
-The **kube-scheduler**, or a custom scheduler, uses the PodSpec to determine the best node for deployment. In addition to administrative tasks to grow or shrink the cluster or the number of Pods, there are autoscalers which can add or remove nodes or pods, with plans for one which uses cgroup settings to limit CPU and memory usage by individual containers. By default, Pods use as much CPU and memory as the workload requires, behaving and coexisting with other Linux processes. Through the use of resource requests, the scheduler will only schedule a Pod to a node if resources exist to meet all requests on that node. The scheduler takes these and several other factors into account when selecting a node for use. Monitoring the resource usage cluster-wide is not an included feature of Kubernetes. Other projects, like Prometheus, are used instead. In order to view resource consumption issues locally, use: `kubectl describe pod`
+To containerize an application, you begin by creating your application. Not all applications do well with containerization. The more stateless and transient the application, the better. Also, remove any environmental configuration, as those can be provided using other tools, like ConfigMaps and secrets. Develop the application until you have a single build artifact which can be deployed to multiple environments without needing to be changed, using decoupled configuration instead. Many legacy applications become a series of objects and artifacts, residing among multiple containers.
 
-CPU requests are made in *CPU units*, each unit being a *millicore*, using mille - the Latin word for thousand. Some documentation uses
-millicore, others use * *, but both have the same meaning. Thus, a request for .7 of a CPU would be 700 millicore. Should a container use more resources than allowed, it won't be killed, but will be throttled. If the limits are set to the pod instead of a particular container, all usage of the containers is considered and all containers are throttled at the same time. Each millicore is not evaluated, so using more than the limit is possible. The exact amount of overuse is not definite:
-- spec.containers[].resources.limits.cpu
-- spec.containers[].resources.requests.cpu
+Containerize an app can be as easy as:
+- Create a [Dockerfile](https://docs.docker.com/engine/reference/builder/)
+  - The name is important, as it must be those ten characters, beginning with a capital “D” newer versions allow a different filename to be used after -f <filename>.
+- Build the container: `sudo docker build -t simpleapp`
+- Verify the image:
+    ```
+    sudo docker images
+    sudo docker run simpleapp
+    ```
+- Push to the repository: `sudo docker push`
 
-The value of CPUs is not relative. It does not matter how many exist, or if other Pods have requirements. One CPU, in Kubernetes, is
-equivalent to:
-- AWS vCPU
-- GCP Core
-- Azure vCore
-- Hyperthread on a bare-metal Intel processor with Hyperthreading.
+While Docker has made it easy to upload images to their Hub, these images are then public and accessible to the world. A common alternative is to create a local repository and push images there.
 
-With Docker engine, the `limits.memory` value is converted to an integer value and becomes the value to the `docker run --memory <value> <image>` command. The handling of a container which exceeds its memory limit is not definite. It may be restarted, or, if it asks for more than the memory request seting, the entire Pod may be evicted from the node:
-- spec.containers[].resour ces.1imits .memory
-- spec.containers[].resources.requests.memory
+Once you can push and pull images using the docker command, try to run a new deployment inside Kubernetes using the image. The string passed to the `--image` argument includes the repository to use, the name of the application, then the version.
 
-Container files, logs, and EmptyDir storage, as well as Kubernetes cluster data, reside on the root filesystem of the host node. As storage is a limited resource, you may need to manage it as other resources. The scheduler will only choose a node with enough space to meet the sum of all the container requests. Should a particular container, or the sum of the containers in a Pod, use more than the limit, the Pod will be evicted:
-- spec.containers [].resour ces. 1imits.ephemeral-storage
-- spec.containers [].resources. requests.ephemeral-storage
+Use kubectl create to test the image:
+```
+kubectl create deployment <Deploy-Name> --image=<repo>/<app-name>:<version>
+kubectl create deployment time-date --image=10.110.186.162:5000/simpleapp:v2.2
+```
 
-> Note: Ephemeral storage is a beta feature in v1.14.
+Verify the Pod shows a running status and that all included containers are running as well: `​kubectl get pods`
 
-## Labels
+Part of the testing may be to execute commands within the Pod. What commands are available depend on what was included in the base environment when the image was created. If you have more than one container, declare which container: `kubectl exec -i​t <Pod-Name> -- /bin/bash`
 
-Labels allow for objects to be selected, which may not share other characteristics. Labels are how operators, also known as watch-loops, track and manage objects. Selectors are namespace-scoped. Use the --all-namespaces argument to select matching objects in all namespaces.
-The labels, annotations, name, and metadata of an object can be found near the top of the output produced by `kubectl get <object-name> -o yaml `.
+It may not make sense to recreate an entire image to add functionality like a shell or logging agent. Instead, you could add another container to the Pod, which would provide the necessary tools.
 
-There are several built-in object labels. For example nodes have labels such as the `arch`, `hostname`, and `os`, which could be used for assigning pods to a particular node, or type of node. The `nodeSelector` entry in the podspec could use this label to cause a pod to be deployed on a particular node.
+Each container in the Pod should be transient and decoupled.
+
+Every container in a Pod shares a single IP address and namespace. Each container has equal potential access to storage given to the Pod. Kubernetes does not provide any locking, so your configuration or application should be such that containers do not have conflicting writes.
+
+One container could be read only while the other writes. You could configure the containers to write to different directories in the volume, or the application could have built in locking. Without these protections, there would be no way to order containers writing to the storage.
+
+There are three terms often used for multi-container pods:
+- **ambassador**, used to communicate with outside resources, often outside the cluster (e.g proxy)
+- **adapter**, useful to modify the data generated by the primary container
+- **sidecar**,  secondary container which helps or provides a service not found in the primary application (e.g. logging).
+
+Probes help ensure that applications are ready for traffic and healthy:
+- **readinessProbe**, ensures the pod is in a halthy state and can accept incoming traffic
+- **livenessProbe**, continually checks the health of a container
+- **startupProbe**, useful for testing an application which takes a long time to start, in which case kubelet disables liveness and readiness checks until the application passes the test.
+
+To test a deployment two built-in kubectl arguments are often used in combination. The first one is ``describe`` and the next would be `logs`.
+
+You can see the details, conditions, volumes and events for an object with `describe`. The `Events` at the end of the output can be helpful during testing, as it presents a chronological and node view of cluster actions and associated messages: `kubectl describe pod test1`
+
+A next step in testing may be to look at the output of containers within a pod: `kubectl logs test1`
+
+In addition to pushing the image to a repository, you may want provide the image and other objects, such that they can be easily deployed. The [Helm](https://helm.sh/) package manager is the package manager for Kubernetes[^1].
+
+Helm uses a **chart**, or collection of YAML files to deploy one or more objects. For flexibility and dynamic installation, a `values.yaml` file is part of a chart and is often edited before deployment.
+
+A chart can come from many locations, with [ArtifactHub](https://artifacthub.io/) becoming a centralized site to publish and find charts.
+
+[^1]: [Helm: A cheat sheet ](https://www.tutorialworks.com/helm-cheatsheet/)

@@ -1,25 +1,36 @@
-## Container Options
+## 1. Introduction
+---
 
-As Docker evolved, spreading their vendor-lock characteristics through the container creation and deployment life cycle, new projects and features have become popular. As other container engines become mature, Kubernetes continues to become more open and independent.
+**Kubernetes**, also known as **K8s**, is an open-source system (written in Go language) for automating deployment, scaling, and management of containerized applications.
 
-A **container runtime**[^1] is the component which runs the containerized application upon request. **Docker Engine** remains the default for Kubernetes, though **CRI-O** and others are gaining community support.
+Deploying and connecting containers across multiple hosts, scaling them, deploying applications without downtime, and service discovery among several aspects can be complex.
 
-The containerized image is moving from Docker to one that is not bound to higher-level tools and that is more portable across operating systems and environments. The Open Container Initiative (**OCI**) was formed to help with this. Docker donated their **libcontainer** project to form a new codebase called [runC](https://github.com/opencontainers/runc) to support these goals.
+Kubernetes addresses those challenges from the start with a set of primitives and a powerful open and extensible API. The ability to add new objects and operators allows easy customization for various production needs. The ability to add multiple schedulers and multiple API servers adds to this customization.
 
-Where Docker was once the only real choice for developers, the trend toward open specifications and flexibility indicates that building with vendor-neutral features is a wise choice[^2].
+Kubernetes can be an integral part of Continuous Integration/Continuous Delivery (CI/CD), as it offers many of the necessary components.
 
-A developer looking toward the future would be wise to work with mostly open tools for containers and Kubernetes, but he or she should understand that Docker is still the production tool of choice outside of a Red Hat environment[^3] at the moment.
+Instead of using a large server, Kubernetes approaches the issue of facing web traffic increases by deploying a large number of small web servers, or microservices. The server and client sides of the application expect that there are one or more microservices, called **replicas**, available to respond to a request.
 
-The goal of the Container Runtime Interface (**CRI**) is to allow easy integration of container runtimes with kubelet. By providing a protobuf method for API, specifications and libraries, new runtimes can easily be integrated without needing deep understanding of kubelet internals.
+Communication to, as well as internally, between components, is API call-driven, which allows for flexibility. Configuration information is stored in a JSON format, but is most often written in YAML. Kubernetes agents convert the YAML to JSON prior to persistence to the database.
 
-The project is in early stage, with lots of development in action. Now that **Docker-CRI** integration is done, new runtimes should be easily added and swapped out. At the moment, CRI-O, **rktlet** and **frakti** are listed as work-in-progress.
+The developer experience has been boosted tremendously thanks to containers. However, managing containers at scale and architecting a distributed application based on microservices' principles is still challenging.
 
-The **rkt** runtime, pronounced rocket, has gathered a lot of attention and it was expected to be the leading replacement for Docker until CRI-O became part of the official Kubernetes Incubator. CRI-O uses the Kubernetes Container Runtime Interface with OCI-compatible runtimes, thus its name.
+> Tip: You can test your microservices' resiliency with [Chaos Monkey](https://netflix.github.io/chaosmonkey/)
 
-The intent of the **containerd** project is not to build a user-facing tool instead, it is focused on exposing highly-decoupled low-level primitives: with a focus on supporting the low-level, or backend plumbing of containers, this project is better suited to integration and operation teams building specialized products, instead of typical build, ship, and run application.
+Kubernetes is inspired by **Borg** - the internal system used by Google to manage its applications (e.g. Gmail, Apps, GCE). Borg has inspired current data center systems, as well as the underlying technologies used in container runtime today. Google contributed **cgroups** to the Linux kernel in 2007; it limits the resources used by collection of processes. Both cgroups and Linux namespaces are at the heart of containers today, including Docker. Also Apache Mesos and Cloud Foundry projects can be traced back to Borg.
 
-[^1]: [A Comprehensive Container Runtime Comparison ](https://www.capitalone.com/tech/cloud/container-runtime/)
+<p align="center">
+    <img src="../img/kuberneteslineage.jpg" width="400" height="200"/>
+</p>
 
-[^2]: [How Docker broke in half](https://www.infoworld.com/article/3632142/how-docker-broke-in-half.html)
+Kubernetes is an open source software with an Apache license. Google donated Kubernetes to a newly formed collaborative project within the Linux Foundation in July 2015, when Kubernetes reached the v1.0 release. This project is known as the Cloud Native Computing Foundation ([CNCF](https://www.cncf.io/)).
 
-[^3]: [RHEL 8 enables containers with the tools of software craftsmanship](https://www.redhat.com/en/blog/rhel-8-enables-containers-tools-software-craftsmanship-0)
+CNCF is not just about Kubernetes, it serves as the governing body for open source software that solves specific issues faced by cloud native applications (i.e. applications that are written specifically for a cloud environment).
+
+In its simplest form, Kubernetes is made of one or more central **managers** (aka masters) and **worker nodes**. The manager runs an API server, a scheduler, various operators and a datastore to keep the state of the cluster, container settings, and the networking configuration.
+
+Kubernetes exposes an API via the API server: you can communicate with the API using a local client called **kubectl** or you can write your own client. The **kube-scheduler** sees the API requests for running a new container and finds a suitable node to run that container. Each node in the cluster runs two containers: **kubelet** and **kube-proxy**. The kubelet container receives spec information for container configuration, downloads and manages any necessary resources and works with the container engine on the local node to ensure the container runs or is restarted upon failure. The kube-proxy container creates and manages local firewall rules and networking configuration to expose containers on the network.
+
+<p align="center">
+    <img src="../img/kubernetes-arch.png" width="600" height="300"/>
+</p>
