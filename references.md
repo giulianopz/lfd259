@@ -27,6 +27,7 @@ Useful resources to prepare for the [CKAD](https://training.linuxfoundation.org/
   - [A visual guide on troubleshooting Kubernetes deployments](https://learnk8s.io/troubleshooting-deployments)
   - [Understanding Kubernetes Resource (CPU and Memory) Units](https://medium.com/swlh/understanding-kubernetes-resource-cpu-and-memory-units-30284b3cc866)
   - [Collecting metrics with built-in Kubernetes monitoring tools](https://www.datadoghq.com/blog/how-to-collect-and-graph-kubernetes-metrics/#add-kube-state-metrics-to-your-cluster)
+  - [Kubernetes deployment strategies](https://blog.container-solutions.com/kubernetes-deployment-strategies)
 - Practice material:
   - [CKAD Practice](https://kube.academy/courses/ckad-practice)
   - [CKAD Exercises](https://github.com/dgkanatsios/CKAD-exercises)
