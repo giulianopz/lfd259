@@ -29,9 +29,9 @@ Tips before sitting the exams:
   - if you have not yet collected this stuff, see [here](https://github.com/reetasingh/CKAD-Bookmarks)
 - set autocompletion for `kubectl` commands (should be already configured so, but without alias):
   ```
-  $ echo 'source <(kubectl completion bash)' >> ~/.bashrc
-  $ echo 'alias k=kubectl' >> ~/.bashrc
-  $ echo 'complete -F __start_kubectl k' >> ~/.bashrc
+  :~$ echo 'source <(kubectl completion bash)' >> ~/.bashrc
+  :~$ echo 'alias k=kubectl' >> ~/.bashrc
+  :~$ echo 'complete -F __start_kubectl k' >> ~/.bashrc
   ```
 - get familiar with `vi/vim`, if you dont't use them frequently
 - get used to pasting text using the mouse middle/center key, as customary in most of Linux distros
