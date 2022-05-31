@@ -1,24 +1,24 @@
 - **Application Design and Build** (20%)
-  -  Define, build and modify container images
+  -  <span style="color:red">Define, build and modify container images (NEW)</span>
   -  Understand Jobs and CronJobs
   -  Understand multi-container Pod design patterns (e.g. sidecar, init and others)
   -  Utilize persistent and ephemeral volumes
 
 - **Application Deployment** (20%)
-  -  Use Kubernetes primitives to implement common deployment strategies (e.g. blue/green or canary)
+  -  <span style="color:red">Use Kubernetes primitives to implement common deployment strategies (e.g. blue/green or canary)(NEW)</span>
   -  Understand Deployments and how to perform rolling updates
-  -  Use the Helm package manager to deploy existing packages
+  -  <span style="color:red">Use the Helm package manager to deploy existing packages
 
 - **Application observability  and maintenance** (15%)
-  -  Understand API deprecations
+  -  <span style="color:red">Understand API deprecations(NEW)</span>
   -  Implement probes and health checks
   -  Use provided tools to monitor Kubernetes applications
   -  Utilize container logs
   -  Debugging in Kubernetes
 
 - **Application Environment, Configuration and Security** (25%)
-  -  Discover and use resources that extend Kubernetes (CRD)
-  -  Understand authentication, authorization and admission control
+  -  <span style="color:red">Discover and use resources that extend Kubernetes (CRD)(NEW)</span>
+  -  <span style="color:red">Understand authentication, authorization and admission control(NEW)</span>
   -  Understanding and defining resource requirements, limits and quotas
   -  Understand ConfigMaps
   -  Create & consume Secrets
