@@ -30,7 +30,7 @@
     #    terminationGracePeriodSeconds: 30
     #    volumes:                                  #<--- volume
     #    - name: secret-vol
-    #        secret:
+    #      secret:
     #        secretName: specialofday              #--->
     ```
 
