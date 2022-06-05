@@ -1,23 +1,32 @@
 #!/bin/bash
 
+set -e
+set -x
+
 start() {
-  systemctl start snap.multipass.multipassd.service
+        echo "Starting the cluster..."
+        systemctl start snap.multipass.multipassd.service
 }
 
 sshmaster() {
-  multipass shell master
+        echo "Shell into master..."
+        multipass shell master
 }
 
 if multipass ls; then
         state=$(multipass ls | grep master | tr -s ' ' | cut -d' ' -f2)
         echo "Master node is in state: $state"
         if [ $state != 'Running' ]; then
-                echo "Starting the cluster..." && start
+                start
         fi
 else
-        echo "Starting the cluster..." && start
+        start
 fi
-echo "Waiting 10 secs for the nodes to be up..."
-sleep 10
-echo "Shell into master"
-sshmaster
+
+if multipass ls; then
+        sshmaster
+else
+        echo "Waiting 20 secs for the nodes to be up..."
+        sleep 20
+        sshmaster
+fi
