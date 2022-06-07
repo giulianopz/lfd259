@@ -62,3 +62,23 @@ Check last events in all namespaces, in a specific namespace or in the current o
 ```bash
 kubectl get events --sort-by=.metadata.creationTimestamp [-A|-n a-specific-namespace]
 ```
+
+---
+
+Change the current context:
+```
+kubectl config --kubeconfig=config-demo use-context [my-context]
+```
+Switch namespace:
+```
+kubectl config set-context --current --namespace=[my-namespace]
+```
+
+---
+
+List roles associated with service accounts:
+```
+kubectl get rolebindings,clusterrolebindings \
+--all-namespaces  \
+-o custom-columns='KIND:kind,NAMESPACE:metadata.namespace,NAME:metadata.name,SERVICE_ACCOUNTS:subjects[?(@.kind=="ServiceAccount")].name'
+```
