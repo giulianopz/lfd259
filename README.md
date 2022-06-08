@@ -17,6 +17,22 @@ Additional resources you will need to setup your cluster to simulate the officia
 - a userland implementation of NFSv3 like `unfsd` (see [CreateUNFS.sh](CreateUNFS.sh)): but it can be tricky, since you are not allowed two turn multipass instances into LXD privileged containers
   - alternatively, consider to just mount a directory from the host as follows: `multipass mount -u $UID:1000 ckad/ master:/mnt`
 - linkerd version `stable-2.10.0` (more recent versions will not work with latest ingress-nginx version you will be required to install)
+  - otherwise use the microk8s [add-on](https://microk8s.io/docs/addon-linkerd)
+
+Limitations of this setup:
+- `dnsPolicy: Default` in a Pod specs causes domain name resolution failures
+  - you may consider the first option listed [here](https://gist.github.com/superseb/f6894ddbf23af8e804ed3fe44dd48457#file-defaultdns-md) to get around the issue:
+  ```
+  :~$ sudo systemctl mask systemd-resolved
+  :~$ rm -f /etc/resolv.conf
+  :~$ sudo ln -s /run/systemd/resolve/resolv.conf /etc/resolv.conf
+  ```
+- multipass crashes on startup if network is unavailable
+  - you will have to restart the multipass daemon manually:
+  ```
+  :~$ sudo systemctl start snap.multipass.multipassd.service
+  ```
+
 
 Some useful info while studying and practicing:
 - review the [syllabus](syllabus.md) of the domains covered by the exam
