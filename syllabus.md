@@ -32,4 +32,4 @@
 
 ---
 
-Revisit latest version of the CKAD domain list on the official [repo](https://github.com/cncf/curriculum).
+Revisit latest version of the CKAD domain list in its official [location](https://github.com/cncf/curriculum).
