@@ -39,7 +39,7 @@ Please, be aware that this setup has some limitations:
 
 ### 2. Study and Practice for CKAD
 
-Attending the LFD259 course and completing the relative labs is not enough: the course itslef is just a prompt to study deeper the official Kubernetes docs (see [here](bookmarks.html) the most important pages bookmarked). You will also need to practice a lot by going through additional hands-on labs besides the ones offered by the LFD259 course (see [here](references.md##practice-material")).
+Attending the LFD259 course and completing the relative labs is not enough: the course itslef is just a prompt to study deeper the official Kubernetes docs (see [here](bookmarks.html) the most important pages bookmarked). You will also need to practice a lot by going through additional hands-on labs besides the ones offered by the LFD259 course (see [here](references.md#practice-material")).
 To plan your study strategy in view of the exam:
 - review the [syllabus](syllabus.md) of the domains covered by the exam
 - consult the [references](references.md) on how to effectively prepare for the exam
