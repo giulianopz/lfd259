@@ -4,7 +4,7 @@
 
 To follow the labs of this course you will have to run Kubernetes somehow. The course suggests to deploy a two-node cluster with `kubeadm` on any platform of your choice (VirtualBox, VMWare, AWS, GCE or even bare metal).
 
-For CKAD actually, running locally Kubernestes as single-node on your laptop can be enough and you have more than one option, e.g. see:
+For [CKAD](https://training.linuxfoundation.org/certification/certified-kubernetes-application-developer-ckad/) actually, running locally Kubernestes as single-node on your laptop can be enough and you have more than one option, e.g. see:
 - [Small Kubernetes for your local experiments](https://blog.flant.com/small-local-kubernetes-comparison/)
 - [Setting up a Kubernetes cluster](https://www.armosec.io/blog/setting-up-kubernetes-cluster/)[^1]
 
@@ -39,7 +39,7 @@ Please, be aware that this setup has some limitations:
 
 ### 2. Study and Practice for CKAD
 
-Attending the LFD259 course and completing the relative labs is not enough: the course itslef is just a prompt to study deeper the official Kubernetes docs. You will also need to practice a lot beyond the corse labs' scenarios.
+Attending the LFD259 course and completing the relative labs is not enough: the course itslef is just a prompt to study deeper the official Kubernetes docs (see [here](bookmarks.html) the most important pages bookmarked). You will also need to practice a lot by going through additional hands-on labs besides the ones offered by the LFD259 course (see [here](references.md##Practice")).
 To plan your study strategy in view of the exam:
 - review the [syllabus](syllabus.md) of the domains covered by the exam
 - consult the [references](references.md) on how to effectively prepare for the exam
@@ -50,7 +50,7 @@ To plan your study strategy in view of the exam:
 Before sitting the exam:
 - read the [candidate handbook](https://docs.linuxfoundation.org/tc-docs/certification/lf-candidate-handbook) and the [instructions](https://docs.linuxfoundation.org/tc-docs/certification/tips-cka-and-ckad) of the exam
 - make sure you have bookmarked the pages of the official Kubernetes docs where you can quickly find example of valid manifests to create objects/resources
-  - if you have not yet collected this stuff, see [here](https://github.com/reetasingh/CKAD-Bookmarks)
+  - if you have not yet collected this stuff, see [here](bookmarks.html)
 - remember how to set autocompletion for the `kubectl` command and its alias (just in case, since it should be already configured so):
   ```
   :~$ echo 'source <(kubectl completion bash)' >> ~/.bashrc
