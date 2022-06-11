@@ -1,6 +1,6 @@
-## Kubernetes for Developers (LFD259) Study Notes to prepare for the CKAD Certification Exam
+## Kubernetes for Developers (LFD259) Study Notes to Prepare for the CKAD Certification Exam
 
-### 1. Local environment setup
+### 1. Local Environment Setup
 
 To follow the labs of this course you will have to run Kubernetes somehow. The course suggests to deploy a two-node cluster with `kubeadm` on any platform of your choice (VirtualBox, VMWare, AWS, GCE or even bare metal).
 
