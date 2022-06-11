@@ -61,7 +61,7 @@ Before sitting the exam:
 - get familiar with the commands available in the exam environment:
   - `vi/vim` to edit files
   - `jq` to process JSON/YAML files
-    - you can validate a YAML file by typing: `cat invalid.yaml | jq empty; echo $?`
+    - you can validate a YAML file by simply typing: `cat invalid.yaml | jq empty`
   - `curl/wget` to call webservers
   - `man` or `[command] -h/--help` to consult commands' manuals
 
