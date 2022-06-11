@@ -29,10 +29,11 @@ Useful resources to prepare for the [CKAD](https://training.linuxfoundation.org/
   - [Collecting metrics with built-in Kubernetes monitoring tools](https://www.datadoghq.com/blog/how-to-collect-and-graph-kubernetes-metrics/#add-kube-state-metrics-to-your-cluster)
   - [Kubernetes deployment strategies](https://blog.container-solutions.com/kubernetes-deployment-strategies)
 - Practice material:
-  - [CKAD Practice](https://kube.academy/courses/ckad-practice)
-  - [CKAD Exercises](https://github.com/dgkanatsios/CKAD-exercises)
-  - [Kubernete Tutorials with CKA and CKAD Prep Guide](kubernetes-tutorial.schoolofdevops.com)
-  - [Kubernetes The Hard Way](https://github.com/kelseyhightower/kubernetes-the-hard-way)
+  - [CKAD Exercises](https://github.com/dgkanatsios/CKAD-exercises) (GitHub)
+  - [Certified Kubernetes Application Developer (CKAD)](https://acloudguru.com/course/certified-kubernetes-application-developer-ckad) (A Cloud Guru)
+  - [CKAD Practice](https://kube.academy/courses/ckad-practice) (KubeAcademy)
+  - [Kubernete Tutorials with CKA and CKAD Prep Guide](kubernetes-tutorial.schoolofdevops.com) (School of Devops)
+  - [Kubernetes The Hard Way](https://github.com/kelseyhightower/kubernetes-the-hard-way) (for CKA, actually)
 - Other curated lists of resources:
   - [Kubernetes Certified Administration](https://github.com/walidshaari/Kubernetes-Certified-Administrator)
   - [ckad-prep-notes](https://github.com/twajr/ckad-prep-notes)
