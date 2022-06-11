@@ -82,3 +82,12 @@ kubectl get rolebindings,clusterrolebindings \
 --all-namespaces  \
 -o custom-columns='KIND:kind,NAMESPACE:metadata.namespace,NAME:metadata.name,SERVICE_ACCOUNTS:subjects[?(@.kind=="ServiceAccount")].name'
 ```
+
+---
+
+Remove all Docker cached resources:
+```
+docker rmi -f $(docker images -a -q)
+docker rm -f $(docker ps -a -q)
+docker volume rm $(docker volume ls -q)
+```
