@@ -57,6 +57,7 @@ Before sitting the exam:
   :~$ echo 'alias k=kubectl' >> ~/.bashrc
   :~$ echo 'complete -F __start_kubectl k' >> ~/.bashrc
   ```
+  - generally, avoiding to use/hardcode too many aliases/variables in your shell will help you to build up "muscle memory"
 - get used to pasting text using the mouse middle/center key, as customary in most of Linux distros
 - get familiar with the commands available in the exam environment:
   - `vi/vim` to edit files
