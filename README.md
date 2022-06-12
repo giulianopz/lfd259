@@ -54,16 +54,21 @@ Before sitting the exam:
 - remember how to set autocompletion for the `kubectl` command and its alias (just in case, since it should be already configured so):
   ```
   :~$ echo 'source <(kubectl completion bash)' >> ~/.bashrc
-  :~$ echo 'alias k=kubectl' >> ~/.bashrc
+  :~$ echo 'alias k=kubecstl' >> ~/.bashrc
   :~$ echo 'complete -F __start_kubectl k' >> ~/.bashrc
   ```
   - generally, avoiding to use/hardcode too many aliases/variables in your shell will help you to build up "muscle memory"
-- get used to pasting text using the mouse middle/center key, as customary in most of Linux distros
+- be aware that copying-pastying should be facilitated by simply selecting text and then right-clicking on the terminals
 - get familiar with the commands available in the exam environment:
   - `vi/vim` to edit files
   - `jq` to process JSON/YAML files
     - you can validate a YAML file by simply typing: `cat invalid.yaml | jq empty`
   - `curl/wget` to call webservers
+    - always use a flag to set the timeout in order to not hang the terminal for too long:
+    ```
+    curl --connect-timeout 3 [IP:PORT]
+    wget --spider --timeout 3 [IP:PORT]
+    ```
   - `man` or `[command] -h/--help` to consult commands' manuals
 
 [^1]: Alternatively, you may take into considerations online Kubernetes playgrounds such as the followings (not recommended): [Play with Kubernetes](https://labs.play-with-k8s.com/), [Katacoda](https://www.katacoda.com/courses/kubernetes/playground)
