@@ -143,14 +143,18 @@ vi security-review1.yaml
 k create -f security-review1.yaml
 ```
 
-That should be considered only a workaround since running nginx as a non-root user require some [changes](https://github.com/docker-library/docs/tree/master/nginx#running-nginx-as-a-non-root-user) to the server configuration.
+That should be considered only a workaround since running nginx as a non-root user require some [changes](https://github.com/docker-library/docs/tree/master/nginx#running-nginx-as-a-non-root-user) to the server configuration. Alternatively, check out the official Docker NGINX unprivileged [image](https://hub.docker.com/r/nginxinc/nginx-unprivileged).
 
-10.  Create a new **ServiceAccount** called `securityaccount`
+> Note: [Bitnami](https://docs.bitnami.com/tutorials/work-with-non-root-containers/) offers non-root container images, including also a non-root [image](https://github.com/bitnami/bitnami-docker-nginx) for NGINX.
+
+> Note: [Openshift](https://developers.redhat.com/blog/2020/10/26/adapting-docker-and-kubernetes-containers-to-run-on-red-hat-openshift-container-platform#) provides a solution to this problem running containers with an arbitrarily assigned user ID (i.e. `USER 1001`).
+
+1.   Create a new **ServiceAccount** called `securityaccount`
 ```
 k create serviceaccount securityaccount
 ```
 
-11. Create a **ClusterRole** named `secrole` which only allows create, delete, and list of pods in all apiGroups:
+1.  Create a **ClusterRole** named `secrole` which only allows create, delete, and list of pods in all apiGroups:
 ```
 vi secrole.yaml
 # apiVersion: rbac.authorization.k8s.io/v1
