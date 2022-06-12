@@ -68,6 +68,8 @@ Multiple deployment strategies are available:
 
 No all the strategies come out of the box: for more advanced options, the Kubernetes primitives are not enough and it can be necessary to setup a more advanced infrastructure (e.g. ingress controller, proxy, service mesh).
 
+### 1. Recreate
+
 A deployment defined with a strategy of type `Recreate` will terminate all the running instances then recreate them with the newer version:
 ```
 spec:
@@ -75,6 +77,8 @@ spec:
   strategy:
     type: Recreate
 ```
+
+### 2. RollingUpdate
 
 In a `RollingUpdate`, a secondary ReplicaSet is created with the new version of the application, then the number of replicas of the old version is decreased and the new version is increased until the correct number of replicas is reached:
 ```
@@ -86,6 +90,8 @@ spec:
       maxSurge: 2        # how many pods we can add at a time
       maxUnavailable: 0  # maxUnavailable define how many pods can be unavailable during the rolling update
 ```
+
+### 3. Blue-green
 
 In a `blue/green` deployment the *green* version of the application is deployed alongside the *blue* version. After testing that the new version meets the requirements, we update the Service that acts as a load balancer to send traffic only to the new version by replacing the version label in the `selector` field:
 ```
@@ -108,6 +114,8 @@ spec:
    version: v1.0.0
 ```
 
+### 3. Canary
+
 A **canary** deployment consists of routing a subset of users to a new release: it can be achieved using two Deployments with common pod labels. One replica of the new version is released alongside the old version. Then after some time and if no error is detected, scale up the number of replicas of the new version and delete the old deployment.
 
 You can use two ReplicaSets side by side, version A with three replicas (75% of the traffic), version B with one replica (25% of the traffic):
@@ -125,6 +133,8 @@ spec:
 ```
 
 Using this ReplicaSet technique requires spinning-up as many pods as necessary to get the right percentage of traffic. This can be quite cumbersome to manage so if you are looking for a better managed traffic distribution, you have to look at load balancers such as **HAProxy** or service meshes like **Linkerd**, which provide greater controls over traffic.
+
+### 5. A/B Testing
 
 A/B testing is actually a technique for making business decisions based on statistics, rather than a deployment strategy. It can be implemented using a canary deployment.
 
