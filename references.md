@@ -40,3 +40,4 @@
   - [Kubernetes The Hard Way](https://github.com/kelseyhightower/kubernetes-the-hard-way) (GitHub) (for CKA actually, but useful if you want to go deeper)
   - [Docker for Beginners - Linux](https://training.play-with-docker.com/beginner-linux/) (Docker)
   - [Hands-on with Podman Containers on Linux](https://acloudguru.com/course/hands-on-with-podman-containers-on-linux) (A Cloud Guru)
+  - [!**IMPORTANT**] [Kubernetes Exam Simulator](https://killer.sh/) (KllrShll)

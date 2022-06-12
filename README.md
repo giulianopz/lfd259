@@ -39,7 +39,12 @@ Please, be aware that this setup has some limitations:
 
 ### 2. Study and Practice for CKAD
 
-Attending the LFD259 course and completing the relative labs is not enough: the course itslef is just a prompt to study deeper the official Kubernetes docs (see [here](bookmarks.html) the most important pages bookmarked). You will also need to practice a lot by going through additional hands-on labs besides the ones offered by the LFD259 course (see [here](references.md#practice-material)).
+Attending the LFD259 course and completing the relative labs is not enough: the course itslef is just a prompt to study deeper the official Kubernetes docs: see [here](bookmarks.html) the most important pages bookmarked.
+
+You will also need to practice a lot by going through additional hands-on labs besides the ones offered by the LFD259 course: see [here](references.md#practice-material) the available options to practice online or on your mini-cluster.
+
+> Note: If you have bought the exam from The Linux Foundation, you get for free two attempts at the official [simulator](https://killer.sh/) of the exam.
+
 To plan your study strategy in view of the exam:
 - review the [syllabus](syllabus.md) of the domains covered by the exam
 - consult the [references](references.md) on how to effectively prepare for the exam
@@ -70,5 +75,6 @@ Before sitting the exam:
     wget --spider --timeout 3 [IP:PORT]
     ```
   - `man` or `[command] -h/--help` to consult commands' manuals
+- have a try with the [simulator](https://killer.sh/)
 
 [^1]: Alternatively, you may take into considerations online Kubernetes playgrounds such as the followings (not recommended): [Play with Kubernetes](https://labs.play-with-k8s.com/), [Katacoda](https://www.katacoda.com/courses/kubernetes/playground)
