@@ -18,7 +18,7 @@ sudo touch /var/snap/microk8s/current/args/certs.d/$registry_ip:5000/hosts.toml
 
 sudo bash -c "echo server = '"\"http://$registry_ip:5000"\"' > /var/snap/microk8s/current/args/certs.d/$registry_ip\:5000/hosts.toml"
 
-sudo bash -c "echo [host.'\""$registry_ip:50000"\"'] >> /var/snap/microk8s/current/args/certs.d/$registry_ip\:5000/hosts.toml"
+sudo bash -c "echo [host.'\""$registry_ip:5000"\"'] >> /var/snap/microk8s/current/args/certs.d/$registry_ip\:5000/hosts.toml"
 
 sudo bash -c "echo capabilities = '[\"pull\", \"resolve\"]' >> /var/snap/microk8s/current/args/certs.d/$registry_ip\:5000/hosts.toml"
 

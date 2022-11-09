@@ -14,7 +14,7 @@ If you have a spare/old laptop or a server/mini-pc, you can setup a mini cluster
     <img src="mini-cluster-netword-diagram.jpg"/>
 </p>
 
-The [setup.sh](setup.sh) script roughly scketches how to bootstrap the minicluster.
+The scripts in the `/script` dir roughly scketch how to bootstrap the minicluster.
 
 You will need some additional stuff to simulate the official course environment in your cluster:
 - a SSH-tunnel to reach from your laptop the service exposed from the cluster passing through the host system: `ssh -L local-port:multipass-master-ip:web-service-port -N -f username@ssh-server-ip`
