@@ -31,8 +31,7 @@ Please, be aware that this setup has some limitations:
   :~$ rm -f /etc/resolv.conf
   :~$ sudo ln -s /run/systemd/resolve/resolv.conf /etc/resolv.conf
   ```
-- multipass crashes on startup if network is unavailable
-  - you will have to restart the multipass daemon manually:
+- multipass crashes on startup if network is unavailable (this bug should fixed now in newer versions), you will have to restart the multipass daemon manually:
   ```
   :~$ sudo systemctl start snap.multipass.multipassd.service
   ```
